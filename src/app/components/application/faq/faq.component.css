@@ -1,0 +1,11 @@
+.register-link {
+    color: #0b85ec;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover {
+    color: rgb(105, 151, 201); /* Teinte plus sombre au survol */
+    text-decoration: underline;
+}

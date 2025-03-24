@@ -1,0 +1,20 @@
+.dropdown-action {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.dropdown-action .btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem; /* Taille plus grande */
+    color: #00305c !important; /* Couleur gris foncé */
+}
+
+.dropdown-action .btn:hover {
+    color: #007bff !important; /* Bleu lors du survol */
+}
+/* Supprime complètement la flèche */
+.dropdown-toggle::after {
+    display: none !important;
+}
+

@@ -1,1 +1,48 @@
-<p>register works!</p>
+<!-- Modal d'Inscription -->
+
+<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+    <div class="modal-content" id="registermodal">
+        <div class="modal-header">
+            <h4>Inscription</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="login-form">
+                <form>
+
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" class="form-control" placeholder="Entrez votre prénom">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" class="form-control" placeholder="Entrez votre nom">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="text" class="form-control" placeholder="Entrez votre e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" class="form-control" placeholder="Entrez votre mot de passe">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn dark-2 btn-md full-width pop-login">S'inscrire</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="mf-link"><i class="ti-user"></i> Vous avez déjà un compte ? <a routerLink="/login" class="theme-cl">
+                    Connectez-vous</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- Fin du Modal -->

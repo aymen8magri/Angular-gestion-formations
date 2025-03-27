@@ -1,0 +1,13 @@
+.ser_110_footer_center {
+    text-align: center; /* Centrer le texte dans les div */
+    margin-top: 10px;   /* Ajouter un petit espace en haut */
+}
+
+.ser_110_footer_center ._oi0po {
+    display: inline-block; /* Permet de centrer les éléments */
+    margin: 5px 10px;      /* Ajoute un espacement entre les éléments */
+}
+
+.ser_110_footer_center i {
+    margin-right: 5px;     /* Ajouter un espacement après l'icône */
+}

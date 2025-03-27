@@ -1,12 +1,12 @@
- <!-- ========================== About Elements ============================= -->
- <section>
+<!-- ========================== Nos Formateurs Professionnels ============================= -->
+<!-- <section>
     <div class="container">
     
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-9">
                 <div class="sec-heading">
-                    <h2>Power Success For <span class="theme-cl-2">Brand</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2>Rencontrez nos <span class="theme-cl-2">Formateurs</span></h2>
+                    <p>Rencontrez nos formateurs expérimentés, dédiés à fournir une formation de qualité pour vous aider à atteindre vos objectifs.</p>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                     <div class="achievement-content">
                         <div class="ache-icon purple"><i class="ti-agenda"></i></div>
                         <h4><span class="cto">9.8</span>M</h4>
-                        <p>Listing Posted</p>
+                        <p>Formations Publiées</p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     <div class="achievement-content">
                         <div class="ache-icon green"><i class="ti-user"></i></div>
                         <h4><span class="cto">200</span>K</h4>
-                        <p>Total Authors</p>
+                        <p>Total Formateurs</p>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="achievement-content">
                         <div class="ache-icon yellow"><i class="ti-medall-alt"></i></div>
                         <h4><span class="cto">99</span>K</h4>
-                        <p>Win Awards</p>
+                        <p>Récompenses Gagnées</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <div class="achievement-content">
                         <div class="ache-icon red"><i class="ti-face-smile"></i></div>
                         <h4><span class="cto">7.2</span>M</h4>
-                        <p>Happy Clients</p>
+                        <p>Clients Satisfaits</p>
                     </div>
                 </div>
             </div>
@@ -55,8 +55,10 @@
         </div>
             
     </div>
-</section>
-<!-- ========================== About Elements ============================= -->
+</section> -->
+<!-- ========================== Fin Nos Formateurs ============================= -->
+
+
 
 <!-- ========================== About Elements ============================= -->
 <section class="gray-light">
@@ -65,24 +67,31 @@
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-9">
                 <div class="sec-heading">
-                    <h2>Our Professional <span class="theme-cl-2">Team</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2>Nos Formateurs <span class="theme-cl-2">Professionnels</span></h2>
+                    <p>Rencontrez nos formateurs expérimentés qui vous guideront à travers des formations de qualité pour atteindre vos objectifs professionnels.</p>
                 </div>
             </div>
         </div>
         
         <div class="row justify-content-center">
+            @for (f of formateurs; track $index) {
             <!-- Single -->
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div class="team-grid">
                     <div class="teamgrid-user">
-                        <img src="assets/img/team-1.jpg" alt="" class="img-fluid">
+                        <img [src]=" 'http://localhost:9050/' + f.photoUrl " alt="" class="img-fluid">
                     </div>
                     
                     <div class="teamgrid-content">
-                        <h4>Rahul Gilkrist</h4>
-                        <span>App Designer</span>
+                        <h4 class="_ser_title mb-2"><a [routerLink]="['/formations/formateur',f.id]" routerLinkActive="router-link-active" >{{ f.nom + " " + f.prenom }}</a></h4>
+                        <hr class="name-underline">
+                        <p><span><i class="fa fa-briefcase"></i> {{ f.specialite }}</span></p>
+                        <p><i class="fa fa-envelope"></i> {{ f.email }}</p>
+                        <p><i class="fa fa-phone"></i> {{ f.telephone }}</p>
+                        <p><i class="fa fa-star"></i> {{ f.experience }} ans</p>
                     </div>
+                    
+                    
                     
                     <div class="teamgrid-social">
                         <ul>
@@ -94,167 +103,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-2.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Shivangi Preet</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-3.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Yash Preet</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-4.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Dhananjay Preet</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-5.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Rahul Gilkrist</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-1.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Adam Wilcard</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-2.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Rajni Kantio</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Single -->
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div class="team-grid">
-                    <div class="teamgrid-user">
-                        <img src="assets/img/team-3.jpg" alt="" class="img-fluid">
-                    </div>
-                    
-                    <div class="teamgrid-content">
-                        <h4>Rahul Rio Singh</h4>
-                        <span>App Designer</span>
-                    </div>
-                    
-                    <div class="teamgrid-social">
-                        <ul>
-                            <li><a href="#" class="f-cl" tabindex="0"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#" class="t-cl" tabindex="0"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#" class="i-cl" tabindex="0"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#" class="l-cl" tabindex="0"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
             
     </div>

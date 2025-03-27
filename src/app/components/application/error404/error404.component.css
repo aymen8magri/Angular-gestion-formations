@@ -1,0 +1,7 @@
+div{
+    background-image: url('../../../../../public/assets/img/404.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+}

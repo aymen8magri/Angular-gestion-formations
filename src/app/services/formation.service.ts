@@ -46,4 +46,14 @@ export class FormationService {
   listerFormations(): Observable<Formation[]> {
     return this.http.get<Formation[]>(`${this.URL}/formations`);
   }
+
+  // Lister les formations par entreprise
+  listerFormationsParEntreprise(entrepriseId: number): Observable<Formation[]> {
+    return this.http.get<Formation[]>(`${this.URL}/formations/entreprise/${entrepriseId}`);
+  }
+
+  // Lister les formations par formateur
+  listerFormationsParFormateur(formateurId: number): Observable<Formation[]> {
+    return this.http.get<Formation[]>(`${this.URL}/formations/formateur/${formateurId}`);
+  }
 }

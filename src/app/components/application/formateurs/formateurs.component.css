@@ -1,0 +1,8 @@
+.name-underline {
+    border: none;
+    border-top: 2px solid #ccc; 
+    width: 75%; 
+    margin: 10px auto; 
+    display: block; 
+
+}

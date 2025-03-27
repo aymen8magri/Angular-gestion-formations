@@ -10,9 +10,12 @@ export const routes: Routes = [
     { path: 'faq', title: 'FAQ', loadComponent: (() => import('./components/application/faq/faq.component').then(m => m.FaqComponent)) },
     { path: 'list-formations', title: 'List Formations', loadComponent: (() => import('./components/application/list-formations/list-formations.component').then(m => m.ListFormationsComponent)) },
     { path: 'list-formations/:id', title: 'Detail Formation', loadComponent: (() => import('./components/application/detail-formation/detail-formation.component').then(m => m.DetailFormationComponent)) },
+    { path: 'formations/entreprise/:entrepriseId', title: 'Formations Entreprise', loadComponent: (() => import('./components/application/formation-by-entity/formation-by-entity.component').then(m => m.FormationByEntityComponent)) },
+    { path: 'formations/formateur/:formateurId', title: 'Formations Formateur', loadComponent: (() => import('./components/application/formation-by-entity/formation-by-entity.component').then(m => m.FormationByEntityComponent)) },
 
     { path: 'login', title: 'login', loadComponent: (() => import('./components/application/login/login.component').then(m => m.LoginComponent)) },
     { path: 'register', title: 'register', loadComponent: (() => import('./components/application/register/register.component').then(m => m.RegisterComponent)) },
+
 
     // Stagiaire routes goes here
     {
@@ -36,5 +39,10 @@ export const routes: Routes = [
             { path: 'add-formation', title: 'Ajouter Formation', loadComponent: () => import('./components/entreprise/add-formation/add-formation.component').then(m => m.AddFormationComponent) },
             { path: 'demandes-inscrirption/:id', title: 'Demandes Inscrirption', loadComponent: () => import('./components/entreprise/demande-inscrirption/demande-inscrirption.component').then(m => m.DemandeInscrirptionComponent) }
         ]
-    }
+    },
+
+
+    //error 404
+    { path:'**', title: '404', loadComponent: (() => import('./components/application/error404/error404.component').then(m => m.Error404Component)) },
+
 ];

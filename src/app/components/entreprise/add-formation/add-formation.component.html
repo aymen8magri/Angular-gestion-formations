@@ -20,80 +20,119 @@
         <div class="_dashboard_content">
             <div class="_dashboard_content_header">
                 <div class="_dashboard__header_flex">
-                    <h4><i class="ti-briefcase mr-1"></i>Submit Task Form</h4>	
+                    <h4><i class="ti-briefcase mr-1"></i>Ajouter une nouvelle formation</h4>    
                 </div>
             </div>
             
             <div class="_dashboard_content_body">
                 <div class="row">
 
+                    <!-- Titre de la formation -->
                     <div class="col-xl-4 col-lg-6">
                         <div class="form-group">
-                            <label>Project Name</label>
-                            <input type="text" class="form-control with-light">
+                            <label>Titre</label>
+                            <input type="text" class="form-control with-light"  name="titre" required>
                         </div>
                     </div>
                     
+                   
+
+                    <!-- Date de début -->
                     <div class="col-xl-4 col-lg-6">
-                        <div class="form-group with-light">
-                            <label>Category</label>
-                            <select id="jb-category" class="form-control ">
-                                <option value=""></option>
-                                <option value="Finance & Accounting">Finance & Accounting</option>
-                                <option value="Banking">Banking</option>
-                                <option value="Medical & Health">Medical & Health</option>
-                                <option value="Human Resources">Human Resources</option>
-                                <option value="IT & Computor">IT & Computor</option>
+                        <div class="form-group">
+                            <label>Date de début</label>
+                            <input type="date" class="form-control with-light"name="dateDebut" required>
+                        </div>
+                    </div>
+
+                    <!-- Date de fin -->
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Date de fin</label>
+                            <input type="date" class="form-control with-light" name="dateFin" required>
+                        </div>
+                    </div>
+
+                    <!-- Nombre de places -->
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Nombre de places</label>
+                            <input type="number" class="form-control with-light" name="nbrePlace" required>
+                        </div>
+                    </div>
+
+                    <!-- Durée de la formation -->
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Durée (en heures)</label>
+                            <input type="number" class="form-control with-light" name="duree" required>
+                        </div>
+                    </div>
+
+                    <!-- Prix de la formation -->
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Prix (TND)</label>
+                            <input type="text" class="form-control with-light" name="prix" required>
+                        </div>
+                    </div>
+
+                     <!-- Description de la formation -->
+                     <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control with-light" name="description" required></textarea>
+                        </div>
+                    </div>
+
+                   
+
+
+                    <!-- Formateur -->
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="form-group">
+                            <label>Formateur</label>
+                            <select class="form-control with-light" name="formateur" required>
+                                <option value="">Select Formateur</option>
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="col-xl-4 col-lg-6">
+
+                     <!-- Image -->
+                     <div class="col-xl-4 col-lg-6">
                         <div class="form-group">
-                            <label>Location</label>
-                            <input type="text" class="form-control with-light">
+                            <label>Image</label>
+                            <input type="file" class="form-control with-light" >
                         </div>
                     </div>
-                    
-                    <div class="col-xl-6 col-lg-6">
-                        <label>Salary</label>
-                        <div class="form-row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control with-light br-0">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text light">USD</span>
-                                    </div>
-                                </div>
+
+
+                     <!-- Planning -->
+                      
+                     <div class="col-xl-10 col-lg-6">
+                        <div class="form-group">
+                            <label>Planning</label>
+                            @for (item of formation.planning; track $index) {
+                            <div>
+                                <input type="text" class="form-control with-light mb-2" name="planning" placeholder="Entrez le plan du jour {{$index + 1}}">
                             </div>
+                            }
                             
                         </div>
                     </div>
-                    
-                   
-                    
-                   
-                    
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="form-group">
-                            <label>Job Description</label>
-                            <textarea class="form-control with-light"></textarea>
-                        </div>
+                    <div class="col-xl-1 col-lg-6">
+                        <button type="button" class="btn btn-primary" (click)="addPlanning()">+</button>
                     </div>
-                    
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input type="file"  class="form-control with-light" >
-                        </div>
-                    </div>
-                    
+
+                   
+
                 </div>
             </div>
         </div>
         <!-- Single Wrap End -->
+
         
-        <button type="button" class="btn btn-save">Submit Job</button>
+        <button type="button" class="btn btn-save">Ajouter formation</button>
         
     </div>
 </div>

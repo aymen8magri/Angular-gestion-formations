@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-stagiaire',
@@ -9,5 +9,9 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './stagiaire.component.css'
 })
 export class StagiaireComponent {
-
+  constructor(private route:Router){}
+  logout(){
+    localStorage.removeItem('token');
+    this.route.navigate(['/login']);
+  }
 }

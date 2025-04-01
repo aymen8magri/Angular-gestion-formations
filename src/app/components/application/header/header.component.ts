@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,5 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
 
+  constructor(public authService:AuthService){}
 }

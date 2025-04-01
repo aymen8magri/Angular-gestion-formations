@@ -8,30 +8,81 @@
         <div class="modal-body">
 
             <div class="login-form">
-                <form>
+                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
                     <div class="form-group">
                         <label>Prénom</label>
-                        <input type="text" class="form-control" placeholder="Entrez votre prénom">
+                        <input type="text" 
+                            formControlName="prenom"
+                            [ngClass]="{'form-control': true, 'error':registrationForm.get('prenom')?.invalid && registrationForm.get('prenom')?.touched }" 
+                            placeholder="Entrez votre prénom" >
                     </div>
 
                     <div class="form-group">
                         <label>Nom</label>
-                        <input type="text" class="form-control" placeholder="Entrez votre nom">
+                        <input type="text"
+                            formControlName="nom"
+                            [ngClass]="{'form-control': true, 'error':registrationForm.get('nom')?.invalid && registrationForm.get('nom')?.touched }"
+                            placeholder="Entrez votre nom" >
+
+                        @if (registrationForm.get('nom')?.invalid && registrationForm.get('nom')?.touched) {
+                            <div class="error-message">
+                                @if (registrationForm.get('nom')?.errors?.['required']) {
+                                    <small>Le nom est requis.</small>
+                                } @else if (registrationForm.get('nom')?.errors?.['minlength']) {
+                                    <small>Le nom doit contenir au moins 2 caractères.</small>
+                                }
+                            </div>
+                        }
                     </div>
 
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input type="text" class="form-control" placeholder="Entrez votre e-mail">
+                        <input type="email" 
+                            formControlName="email"
+                            [ngClass]="{'form-control': true, 'error':registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched }"
+                            placeholder="Entrez votre e-mail" required>
+
+                        @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
+                            <div class="error-message">
+                                @if (registrationForm.get('email')?.errors?.['required']) {
+                                    <small>L'e-mail est requis.</small>
+                                } @else if (registrationForm.get('email')?.errors?.['email']) {
+                                    <small>Veuillez entrer une adresse e-mail valide.</small>
+                                }
+                            </div>
+                        }
                     </div>
 
                     <div class="form-group">
                         <label>Mot de passe</label>
-                        <input type="password" class="form-control" placeholder="Entrez votre mot de passe">
+                        <input type="password" 
+                            formControlName="password"
+                            [ngClass]="{'form-control': true, 'error':registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched }"
+                            placeholder="Entrez votre mot de passe" required>
+
+                        @if (registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched) {
+                            <div class="error-message">
+                                @if (registrationForm.get('password')?.errors?.['required']) {
+                                    <small>L'e-mail est requis.</small>
+                                } @else if (registrationForm.get('password')?.errors?.['minlength']) {
+                                    <small>Le mot de passe doit contenir au moins 6 caractères.</small>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Ajout des radio pour choisir le rôle -->
+                    <div class="form-group">
+                        <label>Choisissez votre rôle</label><br>
+                        <input type="radio" formControlName="role" id="stagiaire" name="role" value="stagiaire">
+                        <label for="stagiaire">Stagiaire</label><br>
+                        <input type="radio" formControlName="role" id="entreprise" name="role" value="entreprise">
+                        <label for="entreprise">Entreprise</label>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn dark-2 btn-md full-width pop-login">S'inscrire</button>
+                        <button type="submit" [disabled]="registrationForm.invalid" class="btn dark-2 btn-md full-width pop-login">S'inscrire</button>
                     </div>
 
                 </form>

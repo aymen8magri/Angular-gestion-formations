@@ -25,13 +25,27 @@
 
                         <ul class="nav-menu nav-menu-social align-to-right">
 
+                            @if (authService.isLoggedIn() && authService.getRoleFromToken()=="STAGIAIRE") {
+                                <li class="add-listing dark-bg">
+                                    <a routerLink="/stagiaire">
+                                        <i class="ti-user mr-1"></i> Mon compte STAGIAIRE
+                                    </a>
+                                </li>
+                            } @else if(authService.isLoggedIn() && authService.getRoleFromToken()=="ENTREPRISE") {
+                                <li class="add-listing dark-bg">
+                                    <a routerLink="/entreprise">
+                                        <i class="ti-user mr-1"></i> Mon compte ENTREPRISE
+                                    </a>
+                                </li>
+                            }@else {
+                                <li class="add-listing dark-bg">
+                                    <a routerLink="/login">
+                                        <i class="ti-user mr-1"></i> Connexion
+                                    </a>
+                                </li>
+                            }
 
-
-                            <li class="add-listing dark-bg">
-                                <a routerLink="/login">
-                                    <i class="ti-user mr-1"></i> Connexion
-                                </a>
-                            </li>
+                            
 
 
                         </ul>

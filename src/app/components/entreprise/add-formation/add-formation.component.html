@@ -3,136 +3,167 @@
         <!-- Breadcrumbs -->
         <div class="bredcrumb_wrap">
             <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Post Task</li>
-              </ol>
-            </nav>	
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Post Task</li>
+                </ol>
+            </nav>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        
+
         <!-- Single Wrap -->
         <div class="_dashboard_content">
             <div class="_dashboard_content_header">
                 <div class="_dashboard__header_flex">
-                    <h4><i class="ti-briefcase mr-1"></i>Ajouter une nouvelle formation</h4>    
+                    <h4><i class="ti-briefcase mr-1"></i>Ajouter une nouvelle formation</h4>
                 </div>
             </div>
-            
+
             <div class="_dashboard_content_body">
-                <div class="row">
+                <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
 
-                    <!-- Titre de la formation -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Titre</label>
-                            <input type="text" class="form-control with-light"  name="titre" required>
-                        </div>
-                    </div>
-                    
-                   
-
-                    <!-- Date de début -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Date de début</label>
-                            <input type="date" class="form-control with-light"name="dateDebut" required>
-                        </div>
-                    </div>
-
-                    <!-- Date de fin -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Date de fin</label>
-                            <input type="date" class="form-control with-light" name="dateFin" required>
-                        </div>
-                    </div>
-
-                    <!-- Nombre de places -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Nombre de places</label>
-                            <input type="number" class="form-control with-light" name="nbrePlace" required>
-                        </div>
-                    </div>
-
-                    <!-- Durée de la formation -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Durée (en heures)</label>
-                            <input type="number" class="form-control with-light" name="duree" required>
-                        </div>
-                    </div>
-
-                    <!-- Prix de la formation -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Prix (TND)</label>
-                            <input type="text" class="form-control with-light" name="prix" required>
-                        </div>
-                    </div>
-
-                     <!-- Description de la formation -->
-                     <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control with-light" name="description" required></textarea>
-                        </div>
-                    </div>
-
-                   
-
-
-                    <!-- Formateur -->
-                    <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Formateur</label>
-                            <select class="form-control with-light" name="formateur" required>
-                                <option value="">Select Formateur</option>
-                            </select>
-                        </div>
-                    </div>
-
-                     <!-- Image -->
-                     <div class="col-xl-4 col-lg-6">
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input type="file" class="form-control with-light" >
-                        </div>
-                    </div>
-
-
-                     <!-- Planning -->
-                      
-                     <div class="col-xl-10 col-lg-6">
-                        <div class="form-group">
-                            <label>Planning</label>
-                            @for (item of formation.planning; track $index) {
-                            <div>
-                                <input type="text" class="form-control with-light mb-2" name="planning" placeholder="Entrez le plan du jour {{$index + 1}}">
+                        <!-- Titre -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Titre</label>
+                                <input type="text" class="form-control with-light" formControlName="titre">
+                                @if (formationForm.get('titre')?.invalid && formationForm.get('titre')?.touched) {
+                                <small class="text-danger">Titre requis (min. 3 caractères)</small>
+                                }
                             </div>
-                            }
-                            
                         </div>
-                    </div>
-                    <div class="col-xl-1 col-lg-6">
-                        <button type="button" class="btn btn-primary" (click)="addPlanning()">+</button>
-                    </div>
 
-                   
+                        <!-- Date de début -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Date de début</label>
+                                <input type="date" class="form-control with-light" formControlName="dateDebut">
+                                @if (formationForm.get('dateDebut')?.invalid && formationForm.get('dateDebut')?.touched)
+                                {
+                                <small class="text-danger">Date requise</small>
+                                }
+                            </div>
+                        </div>
 
-                </div>
+                        <!-- Date de fin -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Date de fin</label>
+                                <input type="date" class="form-control with-light" formControlName="dateFin">
+                                @if (formationForm.get('dateFin')?.invalid && formationForm.get('dateFin')?.touched) {
+                                <small class="text-danger">Date requise</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Nombre de places -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Nombre de places</label>
+                                <input type="number" class="form-control with-light" formControlName="nbrePlace">
+                                @if (formationForm.get('nbrePlace')?.invalid && formationForm.get('nbrePlace')?.touched)
+                                {
+                                <small class="text-danger">Doit être au moins 1</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Durée de la formation -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Durée (en heures)</label>
+                                <input type="number" class="form-control with-light" formControlName="duree">
+                                @if (formationForm.get('duree')?.invalid && formationForm.get('duree')?.touched)
+                                {
+                                <small class="text-danger">Doit être au moins 1</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Prix -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Prix (TND)</label>
+                                <input type="number" class="form-control with-light" formControlName="prix">
+                                @if (formationForm.get('prix')?.invalid && formationForm.get('prix')?.touched) {
+                                <small class="text-danger">Doit être au moins 1</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Description de la formation -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control with-light" formControlName="description"></textarea>
+                                @if (formationForm.get('description')?.invalid &&
+                                formationForm.get('description')?.touched) {
+                                <small class="text-danger">Doit être au moins 10 caractere</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input (change)="selectImage($event)" type="file" class="form-control with-light">
+                            </div>
+                        </div>
+
+                        <!-- Formateur -->
+                        <div class="col-xl-4 col-lg-6">
+                            <div class="form-group">
+                                <label>Formateur</label>
+                                <select class="form-control with-light" formControlName="formateur">
+                                    <option value="">Sélectionner un formateur</option>
+                                    @for (formateur of listFormateurs; track $index) {
+                                    <option [value]="formateur.id">{{ formateur.nom + ' ' + formateur.prenom }}</option>
+                                    }
+                                </select>
+                                @if (formationForm.get('formateur')?.invalid && formationForm.get('formateur')?.touched)
+                                {
+                                <small class="text-danger">Ce champ est requis</small>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Planning -->
+                        <div class="col-xl-10 col-lg-6">
+                            <div class="form-group">
+                                <label>Planning</label>
+                                <div formArrayName="planning">
+                                @for (item of planning.controls; track $index; let i=$index) {
+                                    <input type="text" [formControlName]="i" class="form-control with-light mb-2" name="planning"
+                                        placeholder="Entrez le plan du jour {{i + 1}}">
+                                }
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-6">
+                            <button type="button" class="btn btn-primary" (click)="addPlanning()">+</button>
+                        </div>
+
+                        <!-- Bouton d'envoi -->
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-save" [disabled]="formationForm.invalid">Ajouter
+                                formation</button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
         <!-- Single Wrap End -->
 
-        
-        <button type="button" class="btn btn-save">Ajouter formation</button>
-        
+
+
     </div>
 </div>

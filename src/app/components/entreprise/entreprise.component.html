@@ -17,9 +17,12 @@
                         <div class="dashboard-navbar overlio-top">
 
                             <div class="d-user-avater">
-                                <img src="assets/img/team-1.jpg" class="img-fluid rounded" alt="">
-                                <h4>Adam Harshvardhan</h4>
-                                <span>Canada USA</span>
+                                <img [src]=" 'http://localhost:9050/' + entreprise.logoUrl " class="img-fluid rounded" alt="">
+                                <h4>{{ entreprise.nom }}</h4>
+                                <span><i class="fa fa-envelope"></i>  {{ entreprise.email }}</span><br>
+                                <!-- <span><i class="fa fa-phone"></i> {{ entreprise.telephone }}</span><br>
+                                <span><i class="fa fa-map-marker"></i> {{ entreprise.adresse?.rue }}, {{ entreprise.adresse?.ville }}, {{ entreprise.adresse?.codePostal }}, {{ entreprise.adresse?.pays }}</span> -->
+                   
                             </div>
 
                             <div class="d-navigation">

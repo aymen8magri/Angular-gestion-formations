@@ -5,6 +5,7 @@ export interface Entreprise {
   id?: number; // Optionnel car il est généré par la base de données
   nom: string;
   email: string;
+  password?: String;
   telephone: string;
   logoUrl?: string; // Valeur par défaut côté backend
   adresse?: Adresse; // Relation avec Adresse

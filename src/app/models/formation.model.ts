@@ -12,6 +12,7 @@ export interface Formation {
   duree: number;
   prix: number;
   imageUrl?: string; // Optionnel, valeur par défaut gérée côté backend
-  formateur?: Formateur; // Relation avec Formateur
-  entreprise?: Entreprise; // Relation avec Entreprise
+  formateur?: { id: number };  // ✅ Modification ici
+  entreprise?: { id: number }; // ✅ Modification ici
+  planning?:[]
 }

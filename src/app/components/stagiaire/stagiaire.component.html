@@ -18,9 +18,9 @@
                         <div class="dashboard-navbar overlio-top">
 
                             <div class="d-user-avater">
-                                <img src="assets/img/team-1.jpg" class="img-fluid rounded" alt="">
-                                <h4>Adam Harshvardhan</h4>
-                                <span>Canada USA</span>
+                                <img [src]=" 'http://localhost:9050/' + stagiaire.photoUrl " class="img-fluid rounded" alt="">
+                                <h4>{{ stagiaire.nom +" "+ stagiaire.prenom }}</h4>
+                                <span><i class="fa fa-envelope"></i>  {{ stagiaire.email }}</span>
                             </div>
 
                             <div class="d-navigation">

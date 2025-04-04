@@ -37,6 +37,7 @@ export const routes: Routes = [
             { path: 'formations', title: 'Formations', loadComponent: () => import('./components/entreprise/formations/formations.component').then(m => m.FormationsComponent) },
             //{ path: 'inscriptions', title: 'Inscriptions', loadComponent: () => import('./components/entreprise/inscriptions/inscriptions.component').then(m => m.InscriptionsComponent) },
             { path: 'add-formation', title: 'Ajouter Formation', loadComponent: () => import('./components/entreprise/add-formation/add-formation.component').then(m => m.AddFormationComponent) },
+            { path: 'edit-formation/:id', title: 'Modifier Formation', loadComponent: () => import('./components/entreprise/add-formation/add-formation.component').then(m => m.AddFormationComponent) },
             { path: 'demandes-inscrirption/:id', title: 'Demandes Inscrirption', loadComponent: () => import('./components/entreprise/demande-inscrirption/demande-inscrirption.component').then(m => m.DemandeInscrirptionComponent) }
         ]
     },

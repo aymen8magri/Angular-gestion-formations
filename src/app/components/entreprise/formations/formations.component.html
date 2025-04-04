@@ -1,49 +1,70 @@
 <div class="row">
+    @for (f of formations; track $index) {
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="ser_110 shadow_0">
             <div class="ser_110_thumb">
                 <!-- Dropdown Actions -->
                 <div ngbDropdown class="dropdown-action" container="body">
                     <button ngbDropdownToggle type="button" class="btn icon-btn btn-sm hide-arrow">
-                        <i class="fa fa-cog"></i> <!-- Icône 3 points -->
+                        <i class="fa fa-cog"></i>
                     </button>
                     <div ngbDropdownMenu>
-                        <a ngbDropdownItem href="service-detail.html">
+                        <a ngbDropdownItem [routerLink]="['/list-formations',f.id]">
                             <i class="fa fa-info-circle mr-2"></i> Détails
                         </a>
-                        <a ngbDropdownItem href="#">
+                        <a ngbDropdownItem [routerLink]="['/entreprise/edit-formation', f.id]">
                             <i class="fa fa-edit mr-2"></i> Modifier
                         </a>
-                        <a ngbDropdownItem href="#">
+                        <a ngbDropdownItem [routerLink]="['/entreprise/demandes-inscrirption', f.id]">
+                            <i class="fa fa-users mr-2"></i> Demandes d'inscriptions
+                        </a>
+                        <a ngbDropdownItem (click)="supprimerFormation(f.id)" style="cursor: pointer;">
                             <i class="fa fa-trash mr-2 text-danger"></i> Supprimer
                         </a>
                     </div>
                 </div>               
-                <a href="service-detail.html" class="ser_100_link"><img src="assets/img/co-2.jpg" class="img-fluid" alt=""></a>
+                <a class="ser_100_link"><img [src]=" 'http://localhost:9050/' + f.imageUrl " class="img-fluid" alt=""></a>
             </div>
             <div class="ser_110_caption">
-                
                 <div class="ser_title098">
-                    <h4 class="_ser_title"><a href="service-detail.html">Looking To Hire HTML Into
-                            WordPress Convertor Valuem </a></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                        praesentium.</p>
+                    <h4 class="_ser_title"><a >{{ f.titre }}</a></h4>
+                    <p>{{ f.description }}</p>
+                    
+                    <!-- Formateur -->
+                    <div class="_110_foot_left">
+                        <div class="_autho098">
+                            <img [src]=" 'http://localhost:9050/' + f.formateur?.photoUrl " class="img-fluid circle" alt="">
+                        </div>
+                        <div class="_autho097">
+                            <h5><a>{{f.formateur?.nom + " " + f.formateur?.prenom}}</a></h5>
+                        </div>
+                    </div>
+                    <!-- Nbre places et Durée -->
+                    <div class="ser_110_footer_center">
+                        <div class="_oi0po">
+                            <p><i class="fa fa-users"></i> {{ f.nbrePlace }} Places</p>
+                        </div>
+                        <div class="_oi0po">
+                            <p><i class="fa fa-clock"></i> {{ f.duree }} heures</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
             <div class="ser_110_footer">
                 <div class="_110_foot_left">
-                    <div class="_autho098"><img src="assets/img/team-1.jpg" class="img-fluid circle"
-                            alt=""><img src="assets/img/verify.svg" class="verified" width="12" alt="">
+                    <div class="_oi0po">
+                        <i class="fa fa-calendar-alt"></i> {{ f.dateDebut }} - {{ f.dateFin }}
                     </div>
-                    <div class="_autho097">
-                        <h5><a href="author-detail.html">Adam Kioke</a></h5>
-                    </div>
+                   
                 </div>
                 <div class="_110_foot_right">
-                    <div class="_oi0po"><i class="fa fa-bolt"></i>From<strong
-                            class="theme-cl">$150.00</strong></div>
+                    <div class="_oi0po">
+                        <strong class="theme-cl">{{ f.prix }} TN</strong>
+                    </div>
                 </div>
             </div>
         </div>
     </div>    
+    }
 </div>

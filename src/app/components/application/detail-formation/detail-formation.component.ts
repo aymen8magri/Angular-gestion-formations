@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormationService } from '../../../services/formation.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-detail-formation',
@@ -15,10 +16,12 @@ export class DetailFormationComponent {
 
   readonly formationService: FormationService = inject(FormationService);
   readonly act: ActivatedRoute = inject(ActivatedRoute);
-
+  authService: AuthService = inject(AuthService);
   ngOnInit() {
     this.id = this.act.snapshot.params['id'];
     this.chargerFormation();
+
+    console.log(this.authService.getRoleFromToken());
   }
 
   // Récupérer une formation

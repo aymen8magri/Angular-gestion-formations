@@ -114,9 +114,9 @@
                                 <h4 class="pises_price">{{ formation.prix }} TND<sub>/formation</sub></h4>
                             </div>
                             <div class="_jb_summary_body">
-                                @if (!(this.authService.getRoleFromToken()=="ENTREPRISE")) {
+                                @if (!(this.authService.getRoleFromToken()=="ENTREPRISE") && (!hideInscriptionButton)) {
                                 <div class="_view_profile_btns">
-                                    <a href="employer-detail.html" class="btn btn_emplo_eloi">S'inscrire à cette formation</a>
+                                    <a (click)="inscrireFormation()" class="btn btn_emplo_eloi">S'inscrire à cette formation</a>
                                 </div>
                                 }
                             </div>

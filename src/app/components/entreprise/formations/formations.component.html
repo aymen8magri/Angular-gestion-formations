@@ -15,6 +15,9 @@
                         <a ngbDropdownItem [routerLink]="['/entreprise/edit-formation', f.id]">
                             <i class="fa fa-edit mr-2"></i> Modifier
                         </a>
+                        <a ngbDropdownItem [routerLink]="['/entreprise/inscriptions',f.id]">
+                            <i class="fa fa-users mr-2"></i> Liste des inscrits
+                        </a>
                         <a ngbDropdownItem [routerLink]="['/entreprise/demandes-inscrirption', f.id]">
                             <i class="fa fa-users mr-2"></i> Demandes d'inscriptions
                         </a>

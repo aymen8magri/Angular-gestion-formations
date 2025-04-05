@@ -48,7 +48,7 @@ export class FormationStagiaireService {
   }
 
   /**
-   * ✅ Lister les stagiaires inscrits à une formation donnée
+   * ✅ Lister les stagiaires inscrits à une formation donnée   !!!!!!!!!!!!!!!!!
    */
   getStagiairesInscrits(formationId: number): Observable<Stagiaire[]> {
     return this.http.get<Stagiaire[]>(`${this.URL}/stagiairesInscrits/${formationId}`);
@@ -73,5 +73,20 @@ export class FormationStagiaireService {
    */
   getStagiairesPaiementNonEffectue(formationId: number): Observable<FormationStagiaire[]> {
     return this.http.get<FormationStagiaire[]>(`${this.URL}/paiementsNonEffectues/${formationId}`);
+  }
+
+  // Vérifier si un stagiaire est inscrit à une formation
+  estInscrit(stagiaireId: number, formationId: number): Observable<boolean> {
+    return this.http.get<boolean>(`${this.URL}/estInscrit/${stagiaireId}/${formationId}`);
+  }
+
+   // Récupérer les formations inscrites par un stagiaire
+   getFormationsInscritesByStagiaire(stagiaireId: number): Observable<any> {
+    return this.http.get(`${this.URL}/formationsInscritesByStagiaire/${stagiaireId}`);
+  }
+
+  // Récupérer les formations inscrites par un stagiaire avec paiement non effectué
+  getFormationsInscritesByStagiaireAndPaiementNonEffectue(stagiaireId: number): Observable<any> {
+    return this.http.get(`${this.URL}/formationsInscritesByStagiaireAndPaiementNonEffectue/${stagiaireId}`);
   }
 }

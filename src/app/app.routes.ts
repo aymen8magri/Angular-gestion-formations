@@ -35,7 +35,7 @@ export const routes: Routes = [
             { path: '', title: 'dashboard', loadComponent: (() => import('./components/entreprise/dashboard/dashboard.component').then(m => m.DashboardComponent)) },
             { path: 'profile', title: 'Profil', loadComponent: () => import('./components/entreprise/profile/profile.component').then(m => m.ProfileComponent) },
             { path: 'formations', title: 'Formations', loadComponent: () => import('./components/entreprise/formations/formations.component').then(m => m.FormationsComponent) },
-            //{ path: 'inscriptions', title: 'Inscriptions', loadComponent: () => import('./components/entreprise/inscriptions/inscriptions.component').then(m => m.InscriptionsComponent) },
+            { path: 'inscriptions/:id', title: 'Inscriptions', loadComponent: () => import('./components/entreprise/inscriptions/inscriptions.component').then(m => m.InscriptionsComponent) },
             { path: 'add-formation', title: 'Ajouter Formation', loadComponent: () => import('./components/entreprise/add-formation/add-formation.component').then(m => m.AddFormationComponent) },
             { path: 'edit-formation/:id', title: 'Modifier Formation', loadComponent: () => import('./components/entreprise/add-formation/add-formation.component').then(m => m.AddFormationComponent) },
             { path: 'demandes-inscrirption/:id', title: 'Demandes Inscrirption', loadComponent: () => import('./components/entreprise/demande-inscrirption/demande-inscrirption.component').then(m => m.DemandeInscrirptionComponent) }

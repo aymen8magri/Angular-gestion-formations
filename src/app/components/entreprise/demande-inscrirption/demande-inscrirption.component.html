@@ -4,9 +4,9 @@
         <div class="bredcrumb_wrap">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Bidders</li>
+                    <li class="breadcrumb-item active" aria-current="page">Gérer les demandes</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
         <div class="_dashboard_content">
             <div class="_dashboard_content_header">
                 <div class="_dashboard__header_flex">
-                    <h4><i class="fa fa-user mr-1"></i>Manage Bidders</h4>
+                    <h4><i class="fa fa-user mr-1"></i>Gérer les demandes</h4>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                     @for (demande of lesDemandesNonInscrits; track $index) {
                     <div class="col-xl-4 col-lg-6 col-md-6">
                         <div class="_dash_grid_box">
-                            <div class="_dash_remove_wrap"><a href="#" data-toggle="tooltip" data-placement="top"
+                            <div class="_dash_remove_wrap"><a (click)="supprimerDemande(demande.id)" style="cursor: pointer;" data-toggle="tooltip" data-placement="top"
                                     title="Remove" class="_trash_removeal"><i class="fa fa-trash"></i></a></div>
                             <div class="_dash_grid_box_thumb">
                                 <img [src]=" 'http://localhost:9050/' + demande.stagiaire.photoUrl " class="img-fluid circle">
@@ -39,7 +39,7 @@
                             <div class="_dash_grid_box_caption">
                                 <span class="_elopi_location"><i class="ti-location-pin mr-1"></i>{{demande.stagiaire.email }}</span><br>
                                 <span class="_elopi_location"><i class="ti-location-pin mr-1"></i>{{demande.stagiaire.telephone}}</span>
-                                <h4 class="_elcio_title"><a href="#">{{ demande.stagiaire.prenom + " " + demande.stagiaire.nom }}</a></h4>
+                                <h4 class="_elcio_title"><a>{{ demande.stagiaire.prenom + " " + demande.stagiaire.nom }}</a></h4>
 
 
                                 <!-- <div class="_dash_usr_bid_rate">
@@ -51,8 +51,8 @@
 
                                 <div class="_dash_usr_actioned">
                                     <ul>
-                                        <li><a  (click)="accepetDemande(demande.id)" data-toggle="tooltip" data-placement="top" title="Accept Offer"
-                                                class="_download_cv"><i class="fa fa-check" ></i>Accept Offer</a></li>
+                                        <li><a  (click)="accepteDemande(demande.id)" data-toggle="tooltip" data-placement="top" title="Accept Offer" style="cursor: pointer;" 
+                                            class="_download_cv"><i class="fa fa-check" ></i>Accepter la demande</a></li>
 
                                     </ul>
                                 </div>

@@ -13,35 +13,42 @@
 </div>
 
 <div class="row">
+    <!-- Nombre de formations inscrites -->
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
         <div class="dashboard-stat">
             <div class="dashboard-stat-icon widget-1"><i class="ti-location-pin"></i></div>
-            <div class="dashboard-stat-content"><h4><span class="cto">72</span></h4> <p>Job Posted</p></div>
+            <div class="dashboard-stat-content"><h4><span class="cto">5</span></h4> <p>Formations Inscrites</p></div>
         </div>	
     </div>
     
-
-    
+    <!-- Formations en attente de confirmation -->
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
         <div class="dashboard-stat">
             <div class="dashboard-stat-icon widget-3"><i class="ti-user"></i></div>
-            <div class="dashboard-stat-content"><h4><span class="cto">72</span>K</h4> <p>User Applied in my jobs</p></div>
+            <div class="dashboard-stat-content"><h4><span class="cto">2</span></h4> <p>Formations en Attente</p></div>
         </div>	
     </div>
+    
+    <!-- Nombre de formations disponibles -->
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
         <div class="dashboard-stat">	
             <div class="dashboard-stat-icon widget-2"><i class="ti-pie-chart"></i></div>
-            <div class="dashboard-stat-content"><h4><span class="cto">12</span>M</h4> <p>My proposals</p></div>
+            <div class="dashboard-stat-content"><h4><span class="cto">10</span></h4> <p>Formations Disponibles</p></div>
         </div>	
     </div>    
+    
+    <!-- Nombre de formations complètes -->
     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
         <div class="dashboard-stat">
             <div class="dashboard-stat-icon widget-4"><i class="ti-bookmark"></i></div>
-            <div class="dashboard-stat-content"><h4><span class="cto">80</span></h4> <p>Total jobs in website</p></div>
+            <div class="dashboard-stat-content"><h4><span class="cto">3</span></h4> <p>Formations Complètes</p></div>
         </div>	
     </div>
 </div>
-    
+
 <div class="row">
- 
+    <!-- D'autres informations spécifiques au stagiaire peuvent être ajoutées ici -->
+    <div class="card w-100">
+        <p-chart type="bar" [data]="basicData"></p-chart>
+    </div>
 </div>

@@ -1,1 +1,72 @@
-<p>inscriptions works!</p>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <!-- Breadcrumbs -->
+        <div class="bredcrumb_wrap">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Liste des étudiants inscrits</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <!-- Single Wrap -->
+        <div class="_dashboard_content">
+            <div class="_dashboard_content_header">
+                <div class="_dashboard__header_flex">
+                    <h4><i class="fa fa-user mr-1"></i>Étudiants inscrits</h4>
+                </div>
+            </div>
+
+            <div class="_dashboard_content_body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover shadow-sm">
+                        <thead class="table-primary text-center">
+                            <tr>
+                                <th>#</th>
+                                <th>Photo</th>
+                                <th>Nom & Prénom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Date d’inscription</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Étudiant exemple -->
+                             @for (item of lesInscrits; track $index) {
+                            <tr>
+                                <td class="text-center">{{$index+1}}</td>
+                                <td class="text-center">
+                                    <img [src]=" 'http://localhost:9050/' + item.stagiaire.photoUrl " class="rounded-circle" width="50" height="50"
+                                        alt="Avatar">
+                                </td>
+                                <td>{{item.stagiaire.nom}} {{item.stagiaire.prenom}}</td>
+                                <td>{{item.stagiaire.email}}</td>
+                                <td>{{item.stagiaire.telephone}}</td>
+                                <td class="text-center">{{item.dateInscription}}</td>
+                                <td class="text-center ">
+                                    
+                                    <button class="btn btn-sm btn-danger me-1" (click)="supprimerInscription(item.id)" >
+                                        Désinscrire
+                                    </button>
+                                    
+                                </td>
+                            </tr>
+                            }
+                            <!-- Répéter pour les autres étudiants -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Single Wrap End -->
+
+    </div>
+</div>

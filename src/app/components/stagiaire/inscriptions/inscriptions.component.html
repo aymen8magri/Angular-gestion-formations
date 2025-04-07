@@ -4,9 +4,9 @@
         <div class="bredcrumb_wrap">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Active Bids</li>
+                <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Formations en attente</li>
               </ol>
             </nav>	
         </div>
@@ -20,25 +20,28 @@
         <div class="_dashboard_content">
             <div class="_dashboard_content_header">
                 <div class="_dashboard__header_flex">
-                    <h4><i class="ti-layers mr-1"></i>Active Bids</h4>	
+                    <h4><i class="ti-book mr-1"></i>Formations en attente</h4>	
                 </div>
             </div>
             
             <div class="_dashboard_content_body p-0">
                 <div class="_grouping_list_task">
                     
-                    <!-- Single List -->
+                    <!-- Formation Item -->
+                     @for (item of listFormationEnAttente; track $index) {
                     <div class="_manage_task_list">
+                        <!-- Image de la formation -->
+                        <div class="mr-3">
+                            <img [src]=" 'http://localhost:9050/' + item.formation.imageUrl"  alt="Image formation" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                        </div>
                         <div class="_manage_task_list_flex">
-                            <h4 class="_jb_title">New Landing Page For Beauty Site</h4>
+                            <h4 class="_jb_title">{{ item.formation.titre}}</h4>
                             
                             <ul class="_action_grouping_list">
-                               
-                                <li><a href="#" data-toggle="tooltip" data-placement="top" title="" class="_delete_point" data-original-title="Delete Job"><i class="fa fa-trash"></i></a></li>
+                                <li><a (click)="supprimerInscription(item.id)" data-toggle="tooltip" title="Supprimer la formation" class="_delete_point"><i class="fa fa-trash"></i></a></li>
                                 <li>
-                                    <span class="badge bg-success text-light p-2">approved</span> 
+                                    <span class="badge bg-warning text-dark p-2">En attente</span> 
                                 </li>
-                            
                             </ul>
                         </div>
                         <div class="_manage_task_list_right">
@@ -46,22 +49,31 @@
                                 <ul class="_act_tsk_list">
                                     <li>
                                         <div class="_act_capt_01">
-                                            <h5>$45</h5>
-                                            <span>Hourly Rate</span>	
+                                            <h5>{{ item.formation.dateDebut}}</h5>
+                                            <span>Date de début</span>	
                                         </div>
                                     </li>
                                     <li>
                                         <div class="_act_capt_01">
-                                            <h5>5 days</h5>
-                                            <span>Delivery Time</span>	
+                                            <h5>{{ item.formation.dateFin}}</h5>
+                                            <span>Date de fin</span>	
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="_act_capt_01">
+                                            <h5>{{ item.formation.prix}} TND</h5>
+                                            <span>Prix</span>	
+                                        </div>
+                                    </li>
+                                    
+                                    
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
-             
+                    }   
+                    <!-- Fin Formation Item -->
+
                 
                 </div>
             </div>

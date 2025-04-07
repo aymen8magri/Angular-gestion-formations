@@ -12,7 +12,8 @@
                     <!-- Input de recherche -->
                     <div class="inner-flexible-box subscribe-box">
                         <div class="input-group">
-                            <input type="text" class="form-control large" placeholder="Recherchez une formation...">
+                            <input type="text" [(ngModel)]="searchQuery"
+                            (input)="applyFilters()"  class="form-control large" placeholder="Recherchez une formation...">
                             <button class="btn btn-subscribe bg-dark" type="button">
                                 <i class="fa fa-search"></i>
                             </button>
